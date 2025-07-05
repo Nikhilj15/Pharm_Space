@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt - SNK Home Breed Pets</title>
+    <link rel="stylesheet" href="receipt.css"> <!-- External CSS file -->
+</head>
+<body>
+    <div class="receipt-container">
+        <h1>Thank You for Your Purchase!</h1>
+        <h2>Your Receipt</h2>
+        <div class="receipt-summary">
+            <p><strong>Product Name:</strong> <span id="product-name"></span></p>
+            <p><strong>Price:</strong> ₹<span id="product-price"></span></p>
+            <p><strong>Quantity:</strong> <span id="product-quantity"></span></p>
+            <p><strong>Total Amount:</strong> ₹<span id="total-amount"></span></p>
+        </div>
+        
+        <!-- Button to confirm payment and redirect to payment page -->
+        <button id="confirmPaymentButton">Confirm Payment</button>
+    </div>
+
+    <script>
+        // Function to parse URL parameters
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get('name'),
+                price: params.get('price'),
+                quantity: params.get('quantity')
+            };
+        }
+
+        // Populate receipt with product details
+        const { name, price, quantity } = getUrlParams();
+        const totalAmount = (parseFloat(price) * parseInt(quantity)).toFixed(2); // Calculate total amount
+
+        document.getElementById('product-name').innerText = name;
+        document.getElementById('product-price').innerText = price;
+        document.getElementById('product-quantity').innerText = quantity;
+        document.getElementById('total-amount').innerText = totalAmount;
+
+        // Confirm payment button click event
+        document.getElementById('confirmPaymentButton').addEventListener('click', function() {
+            // Redirect to payment page with product details
+            window.location.href = `payment.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&quantity=${encodeURIComponent(quantity)}`;
+        });
+    </script>
+</body>
+</html>

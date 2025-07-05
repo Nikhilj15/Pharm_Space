@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page - SNK Home Breed Pets</title>
+    <link rel="stylesheet" href="snkcart.css">
+</head>
+<body>
+
+    <main>
+        <section class="product-details">
+            <div class="product-gallery">
+                <img id="main-image" src="https://www.cloningaquapets.com/cdn/shop/files/bristlenose_5.png?v=1724582933" alt="Albino Senegal">
+                <div class="thumbnail-gallery">
+                    
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>ALBINO SENEGAL (3 inches)</h2>
+                <p><del>₹600.00</del> <strong>₹250.00 / per unit</strong> <span class="discount">58% off</span></p>
+
+                <div class="quantity-selector">
+                    <label for="quantity">Qty</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" max="50">
+                </div>
+
+                <div class="action-buttons">
+                    <button class="buy-now">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="wishlist">❤️ Add to Wishlist</button>
+                </div>
+
+                <!-- Cart Modal -->
+                <div id="cart-modal" class="cart-modal" style="display: none;">
+                    <div class="cart-content">
+                        <h3>Your Cart</h3>
+                        <div id="cart-items"></div>
+                        <div id="cart-summary">
+                            <p>Amount: ₹<span id="amount"></span></p>
+                            <p>Delivery: ₹<span id="delivery"></span></p>
+                            <p>Grand Total (Inclusive of all taxes): ₹<span id="grand-total"></span></p>
+                        </div>
+                        <button onclick="proceedToCheckout()">Select Address</button>
+                        <button onclick="closeCartModal()">Close</button>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <script>
+
+        // Get URL parameters for product name, price, and quantity
+const urlParams = new URLSearchParams(window.location.search);
+const productName = urlParams.get('name');
+const productPrice = urlParams.get('price');
+const productQuantity = urlParams.get('quantity');
+
+// If product details are available, show them in the cart
+if (productName && productPrice && productQuantity) {
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartItem = document.createElement('div');
+    cartItem.innerHTML = `<strong>${productName}</strong> - ${productPrice} x ${productQuantity}`;
+    cartItemsDiv.appendChild(cartItem);
+} else {
+    // If no product is in the cart, show a message
+    document.getElementById('cartItems').innerText = "Your cart is empty.";
+}
+document.querySelector('.buy-now').addEventListener('click', function() {
+    const productName = document.querySelector('.product-info h2').innerText;
+    const productPrice = document.querySelector('.product-info strong').innerText.replace('₹', '').trim();
+    const quantity = document.getElementById('quantity').value;
+
+    // Redirect to the receipt page with product details as URL parameters
+    window.location.href = `receipt.html?name=${encodeURIComponent(productName)}&price=${encodeURIComponent(productPrice)}&quantity=${encodeURIComponent(quantity)}`;
+});
+
+    </script>
+    <script>
+        function changeImage(imageSrc) {
+            document.getElementById('main-image').src = imageSrc;
+        }
+
+        // Buy Now button event listener
+        document.querySelector('.buy-now').addEventListener('click', function() {
+            const productName = document.querySelector('.product-info h2').innerText;
+            const productPrice = document.querySelector('.product-info strong').innerText.replace('₹', '').trim();
+            const quantity = document.getElementById('quantity').value;
+
+            // Redirect to the receipt page with product details as URL parameters
+            window.location.href = `receipt.html?name=${encodeURIComponent(productName)}&price=${encodeURIComponent(productPrice)}&quantity=${encodeURIComponent(quantity)}`;
+        });
+
+        function openCartModal() {
+            document.getElementById('cart-modal').style.display = 'block';
+        }
+
+        function closeCartModal() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

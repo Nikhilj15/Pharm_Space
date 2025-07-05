@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="details" href="details.html">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <section class="sub-header">
+            <nav>
+                <a href="home_page.html"><img src="pharmaspace-high-resolution-logo-white-transparent.png"></a>
+                <div class="nav-links" id="navlinks">
+                    <i class="fa-solid fa-xmark"></i>
+                    <ul>
+                        <li><a href="home_page.html">HOME</a></li>
+                        <li><a href="registration.html">REGISTER</a></li>
+                        <li><a href="login.html">lOGIN</a></li>
+                        <li><a href="About.html">ABOUT US</a></li>
+                    </ul>
+                </div>
+                <i class="fa-solid fa-bars"></i>
+            </nav>
+            <h1>CONTACT US</h1>
+        </section>
+
+<!------------- form --------------->
+<div class="body">
+<div class="container1">
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div id="responseMessage" class="message"></div>
+</div>
+</div>
+<!---------footer--------->
+
+<section class="footer">
+    <h4>About Us</h4>
+    <p>This Webiste Is Created For Project Purpose Only, By Mr.Sahil pardeshi & Mr.Nikhil jadhav. <br> 
+     The Main Aim Of This Site Is To Demontsrate The Functioning Of Onilne Medical Store Webiste.</p>
+    <div class="icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+    </div>
+    <p>made with <i class="fa-regular fa-heart"></i> by pharmaspace.com </p>
+</section>
+
+
+<!------------java script for toggle menu------------->
+
+<script>
+    
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // You can add more logic here to save the message, e.g., making an API call
+    const responseMessage = document.getElementById('responseMessage');
+    responseMessage.textContent = 'Your Complaint Has Been Sent Successfully!';
+
+    // Optionally, you could reset the form after sending
+    this.reset();
+});
+
+</script>    
+    </body>
+</html>

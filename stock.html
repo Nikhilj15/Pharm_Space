@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <section class="sub-header">
+            <nav>
+                <a href="home_page.html"><img src="pharmaspace-high-resolution-logo-white-transparent.png"></a>
+                <div class="nav-links" id="navlinks">
+                    <ul>
+                        <li><a href="home_page.html">HOME</a></li>
+                        <li><a href="privacy.css">PRIVACY</a></li>
+                        <li><a href="Medicines.html">PRODUCTS</a></li>
+                        <li><a href="About.html">ABOUT US</a></li>
+                    </ul>
+                </div>
+                <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+            </nav>
+           <center style="color:white ;"> <h1>Available Stock</h1></center>
+        </section>
+
+
+        <main>
+            <h2>Available Stock</h2>
+            <table id="stockTable">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Expiry Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Stock Rows will be inserted here by JS -->
+                </tbody>
+            </table>
+    
+          <center><button id="addStockBtn">Add New Stock</button></center>
+    
+            <!-- Stock Adjustment Modal -->
+            <div id="stockModal" class="modal">
+                <form id="stockForm">
+                    <h3>Add/Adjust Stock</h3>
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" required>
+    
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" required>
+    
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" required>
+    
+                    <label for="expiry">Expiry Date:</label>
+                    <input type="date" id="expiry" required>
+    
+                    <button type="submit">Save Stock</button>
+                    <button type="button" id="closeModalBtn">Cancel</button>
+                </form>
+            </div>
+        </main>
+    
+
+
+        <section class="footer">
+            <h4>About Us</h4>
+            <p>This Webiste Is Created For Project Purpose Only, By Mr.Sahil pardeshi & Mr.Nikhil jadhav. <br> 
+             The Main Aim Of This Site Is To Demontsrate The Functioning Of Onilne Medical Store Webiste.</p>
+            <div class="icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <p>made with <i class="fa-regular fa-heart"></i> by pharmaspace.com </p>
+        </section>
+
+        <script>
+
+            // Mock stock data
+let stockData = [
+    { productName: "Paracetamol", category: "Pain Relief", quantity: 100, expiry: "2025-01-01" },
+    { productName: "Bandaid", category: "medical support", quantity: 30, },
+    { productName: "Aspirin", category: "pain Releif", quantity: 10, expiry: "2024-07-01" },
+    { productName: "coffsils", category: "medical support", quantity: 50, expiry: "2024-06-02" },
+    { productName: "Crosin", category: "pain Releif", quantity: 120, expiry: "2025-02-01" },
+    { productName: "Chaywanprash", category: "Health care", quantity: 90, expiry: "2025-06-01" },
+    { productName: "Disprin", category: "Pain relief", quantity: 50, expiry: "2027-07-01" },
+    { productName: "Eno Sachets", category: "medical support", quantity: 200, expiry: "2026-08-15" },
+    { productName: "Move Spray", category: "medical support", quantity: 35, expiry: "2024-12-30" },
+    { productName: "ORS Powder", category: "First Aid", quantity: 100, expiry: "2025-12-25" },
+    { productName: "Thermometer", category: "First Aid", quantity: 10, },
+    { productName: "Cough Syrup", category: "Liquids", quantity: 60, expiry: "2024-10-30" },
+    { productName: "First Aid Kit", category: "First Aid", quantity: 20, },
+    { productName: "Chaywanprash", category: "Health care", quantity: 120, expiry: "2027-01-10" },
+
+];
+
+// Load stock data to the table
+function loadStockTable() {
+    const stockTableBody = document.querySelector("#stockTable tbody");
+    stockTableBody.innerHTML = "";
+
+    stockData.forEach((stock, index) => {
+        const row = `
+            <tr>
+                <td>${stock.productName}</td>
+                <td>${stock.category}</td>
+                <td>${stock.quantity}</td>
+                <td>${stock.expiry}</td>
+                <td>
+                    <button onclick="editStock(${index})">Edit</button>
+                    <button onclick="deleteStock(${index})">Delete</button>
+                </td>
+            </tr>
+        `;
+        stockTableBody.innerHTML += row;
+    });
+}
+
+// Show modal for adding new stock
+document.getElementById("addStockBtn").addEventListener("click",()=>{
+    document.getElementById("stockModal").style.display = "flex";
+});
+
+// Close modal
+document.getElementById("closeModalBtn").addEventListener("click",()=>{
+    document.getElementById("stockModal").style.display = "none";
+});
+
+// Handle form submission for adding/editing stock
+document.getElementById("stockForm").addEventListener("submit",(event)=>{
+    event.preventDefault();
+    
+    const newStock = {
+        productName: document.getElementById("productName").value,
+        category: document.getElementById("category").value,
+        quantity: parseInt(document.getElementById("quantity").value),
+        expiry: document.getElementById("expiry").value
+    };
+
+    stockData.push(newStock);
+    loadStockTable();
+    document.getElementById("stockModal").style.display = "none";
+    document.getElementById("stockForm").reset();
+});
+
+// Edit stock function
+function editStock(index) {
+    const stock = stockData[index];
+    
+    document.getElementById("productName").value = stock.productName;
+    document.getElementById("category").value = stock.category;
+    document.getElementById("quantity").value = stock.quantity;
+    document.getElementById("expiry").value = stock.expiry;
+    
+    stockData.splice(index, 1); // Remove old entry
+    document.getElementById("stockModal").style.display = "flex";
+}
+
+// Delete stock function
+function deleteStock(index) {
+    stockData.splice(index, 1);
+    loadStockTable();
+}
+
+// Initialize stock table on page load
+loadStockTable();
+        </script>
+    </body>
+</html>

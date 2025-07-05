@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="review10.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <section class="sub-header">
+            <nav>
+                <a href="home_page.html"><img src="pharmaspace-high-resolution-logo-white-transparent.png"></a>
+                <div class="nav-links" id="navlinks">
+                    <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="home_page.html">HOME</a></li>
+                        <li><a href="">REGISTER</a></li>
+                        <li><a href="">lOGIN</a></li>
+                        <li><a href="settings.html">SETTINGS</a></li>
+                        <li><a href="About.html">ABOUT US</a></li>
+                    </ul>
+                </div>
+                <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+            </nav>
+           <center style="color:#fff;"> <h1>User Reviews</h1></center>
+        </section>
+        
+
+
+
+
+    
+
+    <!-- Main Content -->
+    <div id="content"><br><br><br>
+            <!-- Review Section -->
+        <section class="review-section">
+            <div class="container">
+                <h1></h1>
+
+                <!-- Average Rating Display -->
+                <div id="averageRatingContainer" class="average-rating">
+                    <h2>Average Rating: <span id="averageRating">0</span> / 5</h2>
+                    
+                </div>
+
+                <!-- Review Form -->
+                <form id="reviewForm" class="review-form">
+                    <h2>Add Your Review</h2>
+                    <div class="form-group">
+                        <label for="username">Your Name:</label>
+                        <input type="text" id="username" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating:</label>
+                        <select id="rating" required>
+                            <option value="" disabled selected>Select rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Good</option>
+                            <option value="3">3 - Average</option>
+                            <option value="2">2 - Poor</option>
+                            <option value="1">1 - Terrible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewText">Your Review:</label>
+                        <textarea id="reviewText" rows="4" required placeholder="Write your review here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Review</button>
+                    <input type="hidden" id="editIndex">
+                </form>
+
+                <!-- Display Reviews -->
+                <div id="reviewsContainer" class="reviews-container">
+                    <!-- Reviews will be appended here -->
+                </div>
+            </div>
+        </section>
+    </div><br>
+
+    <!-- Footer Section -->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>This Webiste Is Created For Project Purpose Only, By Mr.Sahil pardeshi & Mr.Nikhil jadhav. <br> 
+         The Main Aim Of This Site Is To Demontsrate The Functioning Of Onilne Medical Store Webiste.</p>
+        <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+        </div>
+        <p>made with <i class="fa-regular fa-heart"></i> by pharmaspace.com </p>
+    </section>
+<!-- Thank You Modal -->
+<div id="thankYouModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" id="closeModal">&times;</span>
+        <h2>Thank You!</h2>
+        <p>Your review has been submitted successfully.</p>
+    </div>
+</div>
+
+    <script src="review10.js"></script>
+</body>
+</html>

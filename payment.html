@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation - SNK Home Breed Pets</title>
+    <link rel="stylesheet" href="payment.css"> <!-- Link to your CSS file -->
+    
+    <script defer>
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('name');
+    const productPrice = urlParams.get('price');
+    const productQuantity = urlParams.get('quantity');
+
+    // Display product details
+    document.getElementById('productName').textContent = productName;
+    document.getElementById('productPrice').textContent = productPrice;
+    document.getElementById('productQuantity').textContent = productQuantity;
+
+    // Set current date and time
+    const now = new Date();
+    const dateTimeString = now.toLocaleString();
+    document.getElementById('dateTime').textContent = dateTimeString;
+
+    // Confirm payment button functionality
+    document.getElementById('confirmPayment').addEventListener('click', function() {
+        const customerName = document.getElementById('customerName').value;
+        if (customerName) {
+            alert(`Payment confirmed for ${customerName}!`);
+            // Redirect or further payment processing logic can be implemented here
+        } else {
+            alert('Please enter your name to confirm payment.');
+        }
+    });
+});
+
+    </script> 
+</head>
+<body>
+ 
+
+    <main>
+        <div class="payment-container">
+            <h2>Payment Confirmation</h2>
+            <div class="customer-details">
+                <label for="customerName">Customer Name:</label>
+                <input type="text" id="customerName" placeholder="Enter your name" required>
+            </div>
+
+            <div class="payment-info">
+                <h3>Payment Details</h3>
+                <p>Product: <span id="productName"></span></p>
+                <p>Price: ₹<span id="productPrice"></span></p>
+                <p>Quantity: <span id="productQuantity"></span></p>
+                <p>Date & Time: <span id="dateTime"></span></p>
+            </div>
+
+            <div class="google-pay-scanner">
+                <h3>Google Pay Scanner</h3>
+                <div id="scanner-placeholder" style="text-align: center;">
+                    <img src="E:\sahil\ty_sem-1_project\images\UPI.jfif" alt="Google Pay Scanner" style="max-width: 100%; height: auto;" />
+                </div>
+                <button id="confirmPayment">Confirm Payment</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SNK Home Breed Pets</p>
+    </footer>
+
+    <script>
+        // Function to parse URL parameters
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get('name'),
+                price: params.get('price'),
+                quantity: params.get('quantity')
+            };
+        }
+
+        // Populate payment confirmation with product details
+        const { name, price, quantity } = getUrlParams();
+        document.getElementById('productName').innerText = name;
+        document.getElementById('productPrice').innerText = price;
+        document.getElementById('productQuantity').innerText = quantity;
+
+        // Display current date and time
+        const currentDateTime = new Date().toLocaleString();
+        document.getElementById('dateTime').innerText = currentDateTime;
+
+        // Confirm payment button click event
+        document.getElementById('confirmPayment').addEventListener('click', function() {
+            alert('Payment confirmed! Your order will be processed shortly.');
+            // Optionally, redirect or further payment processing logic can be implemented here
+        });
+        
+    </script>
+
+</body>
+</html>

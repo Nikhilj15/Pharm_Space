@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css"> <!-- External CSS file -->
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="home_page.html"><img src="pharmaspace-high-resolution-logo-white-transparent.png"></a>
+            <div class="nav-links" id="navlinks">
+                <ul>
+                    <li><a href="home_page.html">HOME</a></li>
+                    <li><a href="staff_login.html">STAFF LOGIN</a></li>
+                    <li><a href="privacy.html">PRIVACY</a></li>
+                    <li><a href="About.html">ABOUT US</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Product Details</h1>
+    </section>
+
+    <div class="product-details-container">
+        <img id="product-image" src="" alt="Product Image">
+        <h2 id="product-name"></h2>
+        <p id="product-description"></p>
+        <div class="price" id="product-price"></div>
+    </div>
+
+    <script>
+        // Function to retrieve URL parameters
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get('name'),
+                price: params.get('price'),
+                description: params.get('description'),
+                image: params.get('image'),
+            };
+        }
+        function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+        // Construct URL with parameters
+        const url = `product_info.html?name=${encodeURIComponent(product.name)}&price=${encodeURIComponent(product.price)}&description=${encodeURIComponent(product.description)}&image=${encodeURIComponent(product.image)}`;
+        window.location.href = url;
+    }
+}
+
+
+        // Retrieve and display product details
+        const { name, price, description, image } = getUrlParams();
+        document.getElementById('product-name').innerText = name || 'Product not found';
+        document.getElementById('product-price').innerText = price ? `Rs. ${price}` : '';
+        document.getElementById('product-description').innerText = description || '';
+        document.getElementById('product-image').src = image || '';
+    </script>
+
+    <!---------footer--------->
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>This Website Is Created For Project Purpose Only, By Mr. Sahil Pardeshi & Mr. Nikhil Jadhav. <br> 
+        The Main Aim Of This Site Is To Demonstrate The Functioning Of An Online Medical Store Website.</p>
+        <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+        </div>
+        <p>made with <i class="fa-regular fa-heart"></i> by pharmaspace.com </p>
+    </section>
+</body>
+</html>

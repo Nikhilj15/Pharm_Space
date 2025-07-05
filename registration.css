@@ -1,0 +1,213 @@
+.sub-header{
+    height: 25vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(About_us.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}    
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+    width: 150px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #02f16af5;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.text-box h1{
+    font-size: 62px;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: #fff;
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+nav .fa-solid{
+    display: none;
+}
+
+.container{
+    max-width: 650px;
+    padding: 28px;
+    margin: 50px 40px 50px 398px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border: black;
+    display: flex;
+}
+h2{
+    font-size: 26px;
+    font-weight: bold;
+    text-align: left;
+    color:black;
+    padding-bottom: 8px;
+    margin-top: 25px;
+    border-bottom: 1px solid silver;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+    
+}
+.input-box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+.input-box:nth-child(2n){
+    justify-content: end;
+}
+.input-box label, .gender-title{
+    width: 95%;
+    color: rgb(9, 9, 9);
+    font-weight: bold;
+    margin: 5px 0;
+}
+.gender-title{
+    font-size: 16px;
+}
+.input-box input{
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(9, 9, 9);
+    outline: none;
+}
+.input-box input:is(:focus,:valid){
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+.gender-category label{
+    padding: 0 20px 0 5px;
+    font-size: 14px;
+}
+.gender-category{
+    color: rgb(12, 12, 12);
+}
+.gender-category label, .gender-category input{
+    cursor: pointer;
+}
+.alert p{
+    font-size: 14px;
+    font-style: italic;
+    color: rgb(12, 12, 12);
+    margin: 5px 0;
+    padding: 10px;
+    line-height: 1.5;
+}
+.alert a{
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(0, 124, 172);
+}
+.alert a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+    color: #09dea9;
+}
+.button-container{
+    margin: 15px 0;
+}
+.button-container button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #0ce8c4,#61045f);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.button-container button a{
+    color: #fff;
+    text-decoration: none;
+}
+.button-container button:hover{
+    background-image: linear-gradient(to right, #61045f, #aa076b);
+}
+@media(max-width:600px){
+    .container{
+        min-width: 280px;
+    }
+    .content{
+        max-height: 380px;
+        overflow: auto;
+    }
+    .input-box{
+        margin-bottom: 12px;
+        width: 100%;
+    }
+}
+.active{
+    position: relative;
+}
+.active::after{
+    content: '';
+    background-color: #fff;
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.4s;
+}
+.active:hover::after{
+    width: 100%;
+}

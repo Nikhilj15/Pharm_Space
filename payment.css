@@ -1,0 +1,48 @@
+/* Basic Reset */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Payment Container */
+.payment-container {
+    padding: 20px;
+    background-color: white;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2, h3 {
+    color: #333;
+}
+
+/* Customer Details and Payment Info */
+.customer-details,
+.payment-info {
+    margin-bottom: 15px;
+}
+
+/* Input Styles */
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+}
+
+/* Button Styles */
+button {
+    background-color: #4c5c68;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3a4952;
+}

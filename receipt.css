@@ -1,0 +1,96 @@
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+/* Body background with image */
+body {
+    background-image: url('bglogin2.jpg'); /* Add your image file path */
+    background-size: cover; /* Cover the entire screen */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Keep the background fixed on scroll */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container */
+.receipt-container {
+    max-width: 500px; /* Width for better readability */
+    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    border-radius: 12px; /* Rounded corners */
+    padding: 30px; /* Padding for inner spacing */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading styles */
+h1 {
+    font-size: 26px; /* Larger font for main heading */
+    color: #2ecc71; /* Green color */
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 22px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Summary box */
+.receipt-summary {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Paragraph styles */
+p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Button styles */
+#confirmPaymentButton {
+    width: 100%; /* Full width button */
+    padding: 12px 0; /* Padding for height */
+    font-size: 18px; /* Bigger font */
+    color: white;
+    background-color: #28a745; /* Green background */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+#confirmPaymentButton:hover {
+    background-color: #218838;
+}
+
+/* Button active state */
+#confirmPaymentButton:active {
+    background-color: #1e7e34;
+}
